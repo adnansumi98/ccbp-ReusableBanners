@@ -1,5 +1,6 @@
+import React from 'react'
 import './App.css'
-import {BannerCard} from '/home/nxtwave/reactjs/coding-practices/reusableBannersApp/src/components/BannerCardItem'
+import BannerCard from './components/BannerCardItem/index'
 
 const bannerCardsList = [
   {
@@ -24,9 +25,14 @@ const bannerCardsList = [
 ]
 
 const App = () => {
-  bannerCardsList.map(eachBanner => {
-    BannerCard(eachBanner)
-  })
+  return (<div className="main-container">
+    <ul>
+      {bannerCardsList.map(eachBanner => {
+        return(<BannerCard bannerObject={eachBanner} key={eachBanner.id} />)
+      })}
+    </ul>
+  </div>
+  )
 }
 
 export default App
